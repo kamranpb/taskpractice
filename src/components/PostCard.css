@@ -1,0 +1,46 @@
+.Postcard-wrapper .Postcard {
+  cursor: pointer;
+  position: relative;
+  display: table;
+  width: 10em;
+  height: 10em;
+  padding: 1em;
+  border-radius: 15px;
+  background: rgb(132, 116, 36);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.Postcard p {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  color: black;
+}
+.Postcard .fold {
+  content: "";
+  display: block;
+  width: 10em;
+  height: 10em;
+  position: absolute;
+  right: -6em;
+  top: -6em;
+  border-radius: 50px;
+  background: linear-gradient(
+    -135deg,
+    transparent 11.3em,
+    #feeba7 10em,
+    #feeba7 10em,
+    #feeba7 85%
+  );
+}
+
+.Postcard.yellow {
+  background: rgb(255, 215, 7);
+  background: linear-gradient(
+    -135deg,
+    transparent 2.82em,
+    rgb(255, 215, 7) 0,
+    rgb(255, 215, 7)
+  );
+}

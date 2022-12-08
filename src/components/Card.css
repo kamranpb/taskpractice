@@ -1,0 +1,45 @@
+.card-wrapper .card {
+  cursor: pointer;
+  position: relative;
+  display: table;
+  width: 10em;
+  height: 10em;
+  padding: 1em;
+  border-radius: 100%;
+  background: rgb(255, 215, 7);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.card p {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  color: black;
+}
+.card .fold {
+  content: "";
+  display: block;
+  width: 10em;
+  height: 10em;
+  position: absolute;
+  right: -6em;
+  top: -6em;
+  border-radius: 100%;
+  background: linear-gradient(
+    -135deg,
+    transparent 11.3em,
+    #feeba7 10em,
+    #feeba7 10em,
+    #feeba7 85%
+  );
+}
+
+.card.yellow {
+  background: rgb(255, 215, 7);
+  background: linear-gradient(
+    -135deg,
+    transparent 2.82em,
+    rgb(255, 215, 7) 0,
+    rgb(255, 215, 7)
+  );
+}
