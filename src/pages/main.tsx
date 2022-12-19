@@ -4,28 +4,41 @@ import { Card } from "../components/Card";
 import { Modal } from "../components/Modal";
 import { IUser } from "../types";
 import "../App.css";
+import { useDispatch } from "react-redux";
+import { ActionUser } from "../redux/Action";
+import { useSelector } from "react-redux";
+import { stateType } from "../redux/Reducer";
 
 function Main() {
-  const [users, setUsers] = useState<IUser[] | null>(null);
-  const [modal, setModal] = useState(false);
+  // const [users, setUsers] = useState<IUser[] | null>(null);
+  const users=useSelector((state: stateType)=>state.users)
   const [modalData, setModalData] = useState<IUser | null>(null);
   const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
+  console.log(users)
 
   useEffect(() => {
     setLoading(true);
-    axios
+     axios
       .get<IUser[]>("https://jsonplaceholder.typicode.com/users")
-      .then(({ data }) => setUsers(data))
-      .finally(() => setLoading(false));
-  }, []);
+      .then(({ data }) => {
+        //setUsers(data);
+        setLoading(false);
+        dispatch(ActionUser(data!))
+      });
+     
+
+    }, []);
+
+    
+   
 
   const handleCardClick = (user: IUser) => {
     setModalData(user);
-    setModal(true);
+    
   };
 
   const handleModalClose = () => {
-    setModal(false);
     setModalData(null);
   };
 
@@ -39,22 +52,19 @@ function Main() {
 
   return (
     <>
-      {modal && modalData && Object.keys(modalData).length > 0 && (
+      {modalData && Object.keys(modalData).length > 0 && (
         <Modal user={modalData} onClose={handleModalClose} />
       )}
 
       <section className="container">
         <h1>USERS</h1>
         <div className="containerCard">
-          {users?.map((user, index) => (
-            <>
-              <Card
-                key={index}
-                name={user.name}
-                username={user.username}
-                onClick={() => handleCardClick(user)}
-              />
-            </>
+          {users?.map((user:IUser) => (
+            <Card
+              key={user.id}
+              name={user.name}
+              onClick={() => handleCardClick(user)}
+            />
           ))}
         </div>
       </section>

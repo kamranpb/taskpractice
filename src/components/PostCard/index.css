@@ -11,12 +11,13 @@
   overflow: hidden;
 }
 
-.Postcard p {
+.Postcard .postContent {
   display: table-cell;
   text-align: center;
   vertical-align: middle;
   color: black;
 }
+
 .Postcard .fold {
   content: "";
   display: block;

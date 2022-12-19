@@ -1,9 +1,6 @@
 import React, { useEffect } from "react";
-import "./PostCard.css";
+import "./index.css";
 import { Link } from "react-router-dom";
-import { Dispatch } from "redux";
-import { useDispatch } from "react-redux";
-import { Id, PostAction } from "../redux/action/postActions";
 
 interface IPostCard {
   postTitle: string;
@@ -11,21 +8,17 @@ interface IPostCard {
 }
 
 export const PostCard = ({ postTitle, postId }: IPostCard) => {
-  const dispatch: Dispatch<any> = useDispatch();
-
-  useEffect(() => {
-    dispatch(PostAction({ title: postTitle, id: postId }));
-  }, []);
+  useEffect(() => {}, []);
 
   return (
-    <Link to={`post/${postId}`}>
+    <Link to={`post/${postId}`} style={{ textDecoration: "none" }}>
       <div className="Postcard-wrapper">
         <aside className="Postcard yellow">
-          <p>
+          <div className="postContent">
             {" "}
             <h2>{postId}</h2>
             <h4>{postTitle.substring(0, 22)}...</h4>
-          </p>
+          </div>
           <span className="fold"></span>
         </aside>
       </div>

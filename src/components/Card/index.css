@@ -4,13 +4,12 @@
   display: table;
   width: 10em;
   height: 10em;
-  padding: 1em;
   border-radius: 100%;
   background: rgb(255, 215, 7);
   box-sizing: border-box;
   overflow: hidden;
 }
-.card p {
+.card .cardContent {
   display: table-cell;
   text-align: center;
   vertical-align: middle;
@@ -42,4 +41,11 @@
     rgb(255, 215, 7) 0,
     rgb(255, 215, 7)
   );
+}
+
+@media only screen and (max-width: 600px) {
+  .card-wrapper .card {
+    font-size: 0.8rem;
+    text-align: center;
+  }
 }

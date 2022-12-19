@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { IUser } from "../types";
-import "./Modal.css";
+import { IUser } from "../../types";
+import "./index.css";
 
 interface IModal {
   onClose(): void;
@@ -25,7 +25,7 @@ export const Modal = ({ onClose, user }: IModal) => {
         website:
         <h3>{user.website}</h3>
         <br />
-        <Link to={`user/${user.id}/posts`}>
+        <Link to={`user/${user.id}/posts`} style={{ textDecoration: "none" }}>
           <div className="postLink">Posts</div>
         </Link>
       </div>

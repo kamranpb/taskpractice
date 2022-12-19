@@ -48,3 +48,20 @@
   border-radius: 5px;
   justify-content: center;
 }
+@media only screen and (max-width: 600px) {
+  .modalBackground {
+    height: 85vh;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .modalContainer {
+    width: 310px;
+    height: 510px;
+    padding: 2rem 1rem;
+  }
+  #cancelBtn {
+    margin-bottom: 35.3rem;
+    margin-left: 19.7rem;
+  }
+}

@@ -1,20 +1,19 @@
-import "./Card.css";
+import "./index.css";
 
 interface ICard {
   name: string;
-  username: string;
   onClick: () => void;
 }
 
-export const Card = ({ name, username, onClick }: ICard) => {
+export const Card = ({ name, onClick }: ICard) => {
   return (
     <div className="card-wrapper" onClick={onClick}>
-      <aside className="card yellow">
-        <p>
+      <div className="card yellow">
+        <div className="cardContent">
           <h3>{name}</h3>
-        </p>
+        </div>
         <span className="fold"></span>
-      </aside>
+      </div>
     </div>
   );
 };
